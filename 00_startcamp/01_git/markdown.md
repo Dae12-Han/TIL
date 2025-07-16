@@ -22,9 +22,9 @@
 -> 코드의 '변경 이력'을 기록하고 '협업'을 원활하게 하는 도구
 ### 버전관리
 변화를 기록하고 추적하는 것
-![alt text](image.png)
+![alt text](img/image.png)
 ### 분산
-![alt text](image-1.png) 
+![alt text](img/image-1.png) 
 <중앙 집중식의 문제점>  
 -> 기존에는 중앙 집중식으로 보안 이슈로 하였지만, 회사 서버에 불이 나거나 같은 일이 생긴다면???    
 -> A와 B가 같은 파일의 같은 줄을 수정하고 업데이트를 한다면 충돌이 나는 문제가 발생함
@@ -42,7 +42,7 @@
 - 이전 버전과의 변경 사항 비교
 
 ## git의 영역
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 - **Working Directory**: 실제 작업 중인 파일들이 위치하는 영역   
 - **Staging Area**: Working Directory에서 변경된 파일 중, 다음 버전에 포함시킬 파일들을 선택적으로 추가하거나 제외할 수 있는 중간 준비 영역
 - **Repository**: 버전(commit) 이력과 파일들이 영구적으로 저장되는 영역, 모든 버전(commit)과 변경 이력이 기록됨
@@ -55,38 +55,38 @@
 `git init`   
 로컬 저장소 설정(초기화)   
 -> git의 버전 관리를 시작할 디렉토리에서 진행
-![alt text](image-10.png)
-![alt text](image-3.png)
+![alt text](img/image-10.png)
+![alt text](img/image-3.png)
 git이 영역을 관리하기 위한 폴더
 
 `git add`   
 변경사항이 있는 파일을 staging area에 추가
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 *`git status`로 staging area 확인 가능
 
 `git commit`   
 staging area에 있는 파일들을 저장소에 기록   
 -> 해당 시점의 버전을 생성하고 변경 이력을 남기는 것
-![alt text](image-5.png)
-![alt text](image-6.png)   
+![alt text](img/image-5.png)
+![alt text](img/image-6.png)   
 수정하고 싶을 시 `code ~/.gitconfig`
-![alt text](image-7.png)   
+![alt text](img/image-7.png)   
 
 `git status`   
 현재 로컬 저장소의 파일 상태 보기
-![alt text](image-8.png)   
+![alt text](img/image-8.png)   
 -> 성공적으로 commit 후 track 파일 없어짐   
 
 `git log`   
 commit history 보기
-![alt text](image-9.png)    
+![alt text](img/image-9.png)    
 `git log --oneline`  
 commit 목록 한 줄로 보기
 `git config --global -l`  
 git global 설정 정보 보기
 
 #### <git의 process>
-![alt text](image-11.png)   
+![alt text](img/image-11.png)   
 git은 로컬 저장소 내 모든 파일의 '변경사항'을 감시하고 있다!
 
 #### <git init 주의사항>
