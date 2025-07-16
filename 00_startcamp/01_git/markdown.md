@@ -55,6 +55,7 @@
 `git init`   
 로컬 저장소 설정(초기화)   
 -> git의 버전 관리를 시작할 디렉토리에서 진행
+![alt text](image-10.png)
 ![alt text](image-3.png)
 git이 영역을 관리하기 위한 폴더
 
@@ -71,7 +72,24 @@ staging area에 있는 파일들을 저장소에 기록
 수정하고 싶을 시 `code ~/.gitconfig`
 ![alt text](image-7.png)   
 
+`git status`   
+현재 로컬 저장소의 파일 상태 보기
 ![alt text](image-8.png)   
--> 성공적으로 commit 후 track 파일 없어짐
+-> 성공적으로 commit 후 track 파일 없어짐   
 
-![alt text](image-9.png)
+`git log`   
+commit history 보기
+![alt text](image-9.png)    
+`git log --oneline`  
+commit 목록 한 줄로 보기
+`git config --global -l`  
+git global 설정 정보 보기
+
+#### <git의 process>
+![alt text](image-11.png)   
+git은 로컬 저장소 내 모든 파일의 '변경사항'을 감시하고 있다!
+
+#### <git init 주의사항>
+- git 로컬 저장소 내에 또다른 git 로컬 저장소를 만들지 말 것
+- 즉, 이미 git 로컬 저장소인 디렉토리 내부 하단에서  git init 명령어를 다시 입력하지 말 것
+- git 저장소 안에 git 저장소가 있을 경우 가장 바깥쪽의 git 저장소가 안쪽의 git 저장소의 변경사항을 추적할 수 없기 때문
