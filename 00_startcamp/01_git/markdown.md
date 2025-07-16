@@ -54,39 +54,39 @@
 ## git의 동작
 `git init`   
 로컬 저장소 설정(초기화)   
--> git의 버전 관리를 시작할 디렉토리에서 진행
-![alt text](img/image-10.png)
-![alt text](img/image-3.png)
+-> git의 버전 관리를 시작할 디렉토리에서 진행   
+![alt text](img/image-10.png)   
+![alt text](img/image-3.png)   
 git이 영역을 관리하기 위한 폴더
 
 `git add`   
-변경사항이 있는 파일을 staging area에 추가
-![alt text](img/image-4.png)
+변경사항이 있는 파일을 staging area에 추가   
+![alt text](img/image-4.png)   
 *`git status`로 staging area 확인 가능
 
 `git commit`   
-staging area에 있는 파일들을 저장소에 기록   
--> 해당 시점의 버전을 생성하고 변경 이력을 남기는 것
-![alt text](img/image-5.png)
-![alt text](img/image-6.png)   
-수정하고 싶을 시 `code ~/.gitconfig`
-![alt text](img/image-7.png)   
+staging area에 있는 파일들을 저장소에 기록      
+-> 해당 시점의 버전을 생성하고 변경 이력을 남기는 것   
+![alt text](img/image-5.png)   
+![alt text](img/image-6.png)      
+수정하고 싶을 시 `code ~/.gitconfig`   
+![alt text](img/image-7.png)     
 
 `git status`   
-현재 로컬 저장소의 파일 상태 보기
-![alt text](img/image-8.png)   
--> 성공적으로 commit 후 track 파일 없어짐   
+현재 로컬 저장소의 파일 상태 보기   
+![alt text](img/image-8.png)     
+-> 성공적으로 commit 후 track 파일 없어짐       
 
 `git log`   
-commit history 보기
-![alt text](img/image-9.png)    
+commit history 보기   
+![alt text](img/image-9.png)       
 `git log --oneline`  
-commit 목록 한 줄로 보기
-`git config --global -l`  
-git global 설정 정보 보기
+commit 목록 한 줄로 보기   
+`git config --global -l`   
+git global 설정 정보 보기   
 
 #### <git의 process>
-![alt text](img/image-11.png)   
+![alt text](img/image-11.png)      
 git은 로컬 저장소 내 모든 파일의 '변경사항'을 감시하고 있다!
 
 #### <git init 주의사항>
