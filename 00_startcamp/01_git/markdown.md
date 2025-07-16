@@ -52,6 +52,26 @@
 마치 사진을 찍듯이 기록한다 하여 'snapshot'이라고도 함
 
 ## git의 동작
-`git init`
+`git init`   
+로컬 저장소 설정(초기화)   
+-> git의 버전 관리를 시작할 디렉토리에서 진행
 ![alt text](image-3.png)
 git이 영역을 관리하기 위한 폴더
+
+`git add`   
+변경사항이 있는 파일을 staging area에 추가
+![alt text](image-4.png)
+*`git status`로 staging area 확인 가능
+
+`git commit`   
+staging area에 있는 파일들을 저장소에 기록   
+-> 해당 시점의 버전을 생성하고 변경 이력을 남기는 것
+![alt text](image-5.png)
+![alt text](image-6.png)   
+수정하고 싶을 시 `code ~/.gitconfig`
+![alt text](image-7.png)   
+
+![alt text](image-8.png)   
+-> 성공적으로 commit 후 track 파일 없어짐
+
+![alt text](image-9.png)
