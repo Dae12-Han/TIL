@@ -1,0 +1,1 @@
+OPEN_API_KEY='gpt 키 추가'
