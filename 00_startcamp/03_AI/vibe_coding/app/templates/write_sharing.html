@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나눔 글 작성</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f7fa; }
+        .container { max-width: 400px; margin: 60px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #ccc; padding: 32px; }
+        h2 { text-align: center; color: #2c3e50; }
+        label { font-weight: bold; margin-top: 16px; display: block; }
+        input, textarea, button, select { width: 100%; padding: 12px; margin-top: 8px; border-radius: 6px; border: 1px solid #ddd; }
+        textarea { resize: vertical; }
+        button { background: #27ae60; color: #fff; font-weight: bold; border: none; cursor: pointer; }
+        button:hover { background: #219150; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>나눔 글 작성</h2>
+        <form method="post">
+            <label for="type">타입</label>
+            <select name="type" id="type" required>
+                {% for t in types %}
+                    <option value="{{ t }}">{{ t }}</option>
+                {% endfor %}
+            </select>
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title" placeholder="제목" required>
+            <label for="description">설명</label>
+            <input type="text" name="description" id="description" placeholder="내용" required>
+            <label for="quantity">수량</label>
+            <input type="number" name="quantity" id="quantity" placeholder="수량" min="1" required>
+            <label for="creator">작성자</label>
+            <input type="text" name="creator" id="creator" placeholder="작성자(닉네임)" required>
+            <button type="submit">글 등록</button>
+        </form>
+    </div>
+</body>
+</html>

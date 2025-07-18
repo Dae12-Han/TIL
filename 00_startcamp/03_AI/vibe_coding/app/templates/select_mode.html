@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>대상 선택</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f7fa; }
+        .container { max-width: 400px; margin: 60px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #ccc; padding: 32px; }
+        h2 { text-align: center; color: #2c3e50; }
+        .btn-group { display: flex; gap: 16px; margin-top: 24px; }
+        button { flex: 1; padding: 16px; border-radius: 6px; border: none; background: #3498db; color: #fff; font-weight: bold; cursor: pointer; font-size: 1.1em; }
+        button:hover { background: #217dbb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>공동구매/나눔 대상 선택</h2>
+        <form method="post">
+            <div class="btn-group">
+                <button name="mode" value="campus" type="submit">캠퍼스 전체</button>
+                <button name="mode" value="class" type="submit">반</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

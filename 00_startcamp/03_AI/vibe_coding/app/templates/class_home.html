@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>반 홈</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f7fa; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #ccc; padding: 32px; }
+        h2 { color: #2c3e50; text-align: center; }
+        .section { margin-bottom: 40px; }
+        .section-title { font-size: 1.2em; color: #2980b9; margin-bottom: 12px; }
+        .post-list { margin-bottom: 16px; }
+        .post { background: #f1f8ff; border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+        .write-btn { background: #3498db; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-weight: bold; }
+        .write-btn:hover { background: #217dbb; }
+        .divider { border-top: 2px solid #eee; margin: 32px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>{{ welcome_msg }}</h2>
+        <div class="section">
+            <div class="section-title">공동구매 게시글</div>
+            <div class="post-list">
+                {% for post in group_purchases %}
+                <div class="post">
+                    <strong>{{ post.title }}</strong> | {{ post.creator }}<br>
+                    {{ post.description }}<br>
+                    마감일: {{ post.deadline }} | 참여자: {{ post.participants }}명
+                    <form action="{{ url_for('views.join_group_purchase', post_idx=loop.index0) }}" method="post" style="margin-top:8px;">
+                        <button class="write-btn" type="submit">참여하기</button>
+                    </form>
+                    <div style="margin-top:8px;">
+                        <strong>참여자:</strong>
+                        {% if post.joiners %}
+                            {{ post.joiners | join(', ') }}
+                        {% else %}
+                            <span style="color:#aaa;">아직 참여자가 없습니다.</span>
+                        {% endif %}
+                    </div>
+                    <div style="margin-top:12px;">
+                        <form action="{{ url_for('views.comment_group_purchase', post_idx=loop.index0) }}" method="post" style="display:flex;gap:4px;">
+                            <input type="text" name="text" placeholder="댓글 남기기" required style="width:78%;padding:6px;border-radius:6px;border:1px solid #ddd;">
+                            <button class="write-btn" type="submit" style="width:20%;padding:6px 0;">댓글</button>
+                        </form>
+                        <div style="margin-top:8px;">
+                            {% if post.comments %}
+                                {% for comment in post.comments %}
+                                    <div style="background:#f9f9e7;padding:6px 10px;border-radius:6px;margin-bottom:4px;">
+                                        <strong>{{ comment.creator }}</strong>: {{ comment.text }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <span style="color:#aaa;">댓글이 없습니다.</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="post">등록된 공동구매가 없습니다.</div>
+                {% endfor %}
+            </div>
+            <form action="{{ url_for('views.write_group_purchase') }}" method="get">
+                <button class="write-btn" type="submit">공동구매 글 작성</button>
+            </form>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <div class="section-title">나눔/교환 게시판</div>
+            <div class="post-list">
+                {% for post in sharings %}
+                <div class="post">
+                    <strong>[{{ post.type }}]</strong> {{ post.title }}<br>
+                    {{ post.description }}<br>
+                    수량: {{ post.quantity }} | 작성자: {{ post.creator }}<br>
+                    <form action="{{ url_for('views.receive_sharing', post_idx=loop.index0) }}" method="post" style="display:inline;">
+                        <button type="submit">{{ '나눔받기' if post.type == '나눔' else '교환하기' }}</button>
+                    </form>
+                    <span>참여자: {{ post.receivers | join(', ') }}</span><br>
+                    <form action="{{ url_for('views.comment_sharing', post_idx=loop.index0) }}" method="post" style="margin-top:4px;">
+                        <input name="text" placeholder="댓글 입력" required>
+                        <button type="submit">댓글 달기</button>
+                    </form>
+                    <div style="margin-top:4px;">
+                        {% for comment in post.comments %}
+                            <span>{{ comment.creator }}: {{ comment.text }}</span><br>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="post">등록된 나눔/교환 게시글이 없습니다.</div>
+                {% endfor %}
+            </div>
+            <form action="{{ url_for('views.write_sharing') }}" method="get">
+                <button class="write-btn" type="submit">나눔 글 작성</button>
+            </form>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <div class="section-title">반 수다 게시판</div>
+            <div class="post-list">
+                {% for chat in chats %}
+                <div class="post">
+                    <strong>{{ chat.creator }}</strong>: {{ chat.message }}
+                    <div style="margin-top:10px;">
+                        <div style="margin-bottom:8px;">
+                            {% if chat.comments %}
+                                {% for comment in chat.comments %}
+                                    <div style="background:#eaf7ea;padding:6px 10px;border-radius:6px;margin-bottom:4px;">
+                                        <strong>{{ comment.creator }}</strong>: {{ comment.text }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <span style="color:#aaa;">댓글이 없습니다.</span>
+                            {% endif %}
+                        </div>
+                        <form action="{{ url_for('views.write_comment', chat_idx=loop.index0) }}" method="post" style="display:flex;gap:4px;">
+                            <input type="text" name="text" placeholder="댓글" required style="width:78%;padding:6px;border-radius:6px;border:1px solid #ddd;">
+                            <button class="write-btn" type="submit" style="width:20%;padding:6px 0;">댓글</button>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="post">아직 수다글이 없습니다. 첫 글을 남겨보세요!</div>
+                {% endfor %}
+            </div>
+            <form action="{{ url_for('views.class_home') }}" method="post">
+                <input type="text" name="message" placeholder="수다글을 입력하세요" required style="width:80%;padding:8px;border-radius:6px;border:1px solid #ddd;">
+                <button class="write-btn" type="submit" style="width:18%;margin-left:2%;margin-top:12px;">글 남기기</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

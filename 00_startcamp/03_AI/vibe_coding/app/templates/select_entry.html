@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>입장 방식 선택</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f7fa; }
+        .container { max-width: 400px; margin: 60px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #ccc; padding: 32px; }
+        h2 { text-align: center; color: #2c3e50; }
+        .btn-group { display: flex; gap: 16px; margin-top: 24px; }
+        button { flex: 1; padding: 16px; border-radius: 6px; border: none; background: #3498db; color: #fff; font-weight: bold; cursor: pointer; font-size: 1.1em; }
+        button:hover { background: #217dbb; }
+        .divider { border-top: 2px solid #eee; margin: 32px 0; }
+        select { width: 100%; padding: 12px; margin-top: 16px; border-radius: 6px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='ssafy_logo.png') }}" alt="SSAFY Logo" style="display:block;margin:0 auto 24px auto;width:180px;">
+        <h2>{{ region }} 캠퍼스 전체/반 입장 중 선택하세요</h2>
+        <form method="post">
+            <input type="hidden" name="region" value="{{ region }}">
+            <label for="dong">사는 동을 입력하세요</label>
+            <input type="text" name="dong" id="dong" placeholder="예: 반여동, 해운대구" required style="margin-top:16px;">
+            <button name="entry" value="area" type="submit" style="margin-top:16px;">지역 선택</button>
+        </form>
+        <div class="divider"></div>
+        <form method="post">
+            <input type="hidden" name="region" value="{{ region }}">
+            <label for="class_name">반 선택(반 입장)</label>
+            <select name="class_name" id="class_name" required>
+                {% for i in range(1, 21) %}
+                <option value="{{ i }}반">{{ i }}반</option>
+                {% endfor %}
+            </select>
+            <button name="entry" value="class" type="submit" style="margin-top:16px;">반 입장</button>
+        </form>
+    </div>
+</body>
+</html>
