@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 전체 선택자 */
+    * {
+      color: red;
+    }
+
+    h2 {
+      color: orange;
+    }
+
+    h3, h4 {
+      color: blue;
+    }
+
+    .green {
+      color: green;
+    }
+
+    #purple {
+      color: purple;
+    }
+
+    /* 자손 결합자 */
+    /* li 요소에 대해 .green 클래스에서 설정한 green 색이 아니라 brown 색이 우선 적용 */
+    .green li {
+      color: brown;
+    }
+
+    /* 자식 결합자 */
+    /* > 기호는 자식 결합자를 나타내며, 이는 부모 요소가 직접 자식 요소에만 스타일을 적용하도록 */
+    /* 즉, .green 요소 내부에서 바로 li 자식에만 font-size: 30px;가 적용되고, 그 하위 자식 요소(예: ul > li > ol > li 같은 깊은 자식 요소)에는 적용되지 않습니다. */
+    .green > li {
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="green">Heading</h1>
+  <h2>선택자</h2>
+  <h3>연습</h3>
+  <h4>반가워요</h4>
+  <p id="purple">과목 목록</p>
+  <ul class="green">
+    <li>파이썬</li> <!-- 이 li에만 font-size: 30px 적용 -->
+    <li>알고리즘</li> <!-- 이 li에만 font-size: 30px 적용 -->
+    <li>웹
+      <ol>
+        <li>HTML</li> <!-- 이 li에는 적용되지 않음 -->
+        <li>CSS</li> <!-- 이 li에는 적용되지 않음 -->
+        <li>PYTHON</li> <!-- 이 li에는 적용되지 않음 -->
+      </ol>
+    </li>
+  </ul>
+  <p class="green">Lorem, <span>ipsum</span> dolor.</p>
+</body>
+
+</html>

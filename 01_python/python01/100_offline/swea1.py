@@ -11,11 +11,12 @@ for t in range(T):
     for y in range(N):
         for x in range(N):
             fly1=0
+            fly1+=matrix[y][x]
             for m in range(-M+1,M): 
                 nx=x+m
                 ny=y+m
                 if m==0:
-                    fly1+=matrix[ny][nx]
+                    continue
                 else:
                     if 0<=nx<N:
                         fly1+=matrix[y][nx]
@@ -28,17 +29,16 @@ for t in range(T):
         for x in range(N):
             fly2=0
             fly2+=matrix[y][x]
-            for m1 in range(-M+1,M):
-                nx=x+m1
-                if m1==0: 
+            for m in range(-M+1,M):
+                ny=y+m
+                if m==0: 
                     continue
-                if 0<=nx<N:
-                    for m2 in range(-M+1,M):
-                        ny=y+m2
-                        if m2==0:
-                            continue
-                        if 0<=ny<N:
-                            fly2+=matrix[ny][nx]
+                else:
+                    if 0<=ny<N:
+                        if 0<=x+m<N:
+                            fly2+=matrix[ny][x+m]
+                        if 0<=x-m<N:
+                            fly2+=matrix[ny][x-m]
             max_fly=max(fly2,max_fly)
             
     # 4.출력
