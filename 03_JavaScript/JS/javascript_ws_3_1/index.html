@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+      <!--
+        입력창을 만들 때 HTML에서 input 태크 사용
+        type="text", password, email, ...
+        autofocus: 웹페이지가 열리자마자 자동으로 입력창에 커서가 놓여 바로 글자를 입력
+      -->
+      Input: <input id="userInput" type="text" autofocus>
+    </div>
+    <div>
+      Output: <span id="output"></span>
+    </div>
+
+    <script>
+      /* 
+        현재 코드에서는 input#userInput에 입력한 내용이 그대로 span#output에 출력된다.
+        아래 이미지를 참고하여 badWords에 포함된 단어가 사용자 입력에 포함되어 있을 경우,
+        span#output에서 해당 단어를 **로 바꿔 출력하도록 filterMessage 함수를 완성하시오.
+      */
+      const badWords = ['바보', '멍청', '메롱', ]
+      // document: 현재 웹페이지 
+      // querySelector(): HTML에서 원하는 태그를 찾아주는 함수
+      // '#userInput': id='userInput'인 입력창을 찾아줌, #는 id 의미
+      const userInput = document.querySelector('#userInput')    
+      const output = document.querySelector('#output')
+
+      function filterMessage(event) {
+        let filteredInput = userInput.value;  // 입력값을 가져옴
+
+        // badWords에 포함된 단어가 입력될 경우, '**'으로 변환하여 output에 출력 
+        // forEach: 배열에 있는 모든 단어를 하나씩 확인
+        badWords.forEach(badWord => {
+          const regex = new RegExp(badWord,'g') // 'g'는 전역 검색 의미, 여러번의 단어 모두 교체
+          filteredInput=filteredInput.replace(regex,'**')
+        })
+        //결과를 output에 표시
+        output.innerText = filteredInput //innerText: 태그 안에 글자를 넣거나, 읽어올 수 있게 해주는 속성
+      }
+      //사용자 입력할 때마다 filterMessage 호출
+      // input 이벤트 발생할 때마다(타이핑할 때마다) filterMessage 함수 실행
+      userInput.addEventListener('input', filterMessage)   
+    </script>
+</body>

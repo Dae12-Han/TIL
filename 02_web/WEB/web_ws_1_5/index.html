@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .logo {
+            width: 200px;
+        }
+        .banner {
+            width: 200px;
+        }
+        /* 텍스트 강조 */
+        .highlight {
+            font-weight: bold;
+        }
+        /* 리스트 아이템 스타일 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        li img {
+            margin-right: 10px;
+        }
+        p {
+            margin: 0 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 SSAFY 로고 이미지와 설명 텍스트 -->
+    <header>
+        <div>
+            <img class="logo" src="images/ssafy_logo.png" alt="ssafy-logo">
+        </div>
+        <div>
+            <img class="banner" src="images/ssafy_banner.png" alt="ssafy-banner">
+        </div>
+        <div>
+            <p>삼성청년 SW아카데미</p>
+            <p><b>대한민국 SW의 미래를</b> 이끕니다.</p>
+            <p><b>삼성의 SW 교육 경험과 고용노동부의 취업 지원 노하우를 바탕으로, 취업 준비생에서 SW 역량 향상 교육 및 다양한 취업지원 서비스를 제공하여 취업에 성공하도록 돕는 프로그램입니다.</b></p>
+            <p>본 교육과정은 삼성이 주관하고 고용노동부가 후원하며, 아이들과 미래재단이 함께합니다.</p>
+            <p>(교육운영은 멀티캠퍼스에서 위탁 실시)</p>
+            <hr/>
+        </div>        
+    </header>
+    
+    <!-- 주관, 후원, 위탁 정보 -->
+    <section>
+        <span class="highlight">주관</span>
+        <img src="images/multicampus_logo.png" alt="멀티캠퍼스 로고" style="width: 200px;">
+        <span class="highlight">후원</span>
+        <img src="images/mob_logo_moel.png" alt="MOEL 로고" style="width: 200px;">
+    </section>
+    
+    <!-- 3개의 이모지 이미지 + 텍스트 구성 목록 -->
+    <section>
+        <ul>
+            <li>
+                <img src="images/happling.png" alt="" style="width: 200px;">
+                <span class="highlight">최고의 교육</span>
+            </li>
+            <li>
+                <img src="images/happlossom.png" alt="" style="width: 200px;">
+                <span class="highlight">맞춤형 교육</span>
+            </li>
+            <li>
+                <img src="images/happlower.png" alt="" style="width: 200px;">
+                <span class="highlight">자기주도적 학습</span>
+            </li>
+        </ul>
+    </section>
+     
+</body>
+</html>

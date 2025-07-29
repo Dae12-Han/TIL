@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 첫 번째 선택지 
+       부모 요소에 display:flex를 주고
+       메인축 기준 중앙 정렬하기 
+       -> 기껏 이것저것 다했는데 정작 이미지는 중앙 정렬이 안 됌
+       flex는 자식 요소들에 대해서 처리하는 것 
+       -> 그럼 flex를 선택한건 잘못되었는가? -> flex 지정한 곳이 잘못되었던 것뿐 */
+    /* 두번째 선택지 
+       text-align: center; */
+    .card {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid black;
+      text-align: center;
+    }
+    .card-header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      /* 메인축이 세로 만들어놔서 가로 방향 정렬은 align-items로 해야지
+         -> 하고 나니 p 태그 너비 마음에 안 듬 -> 너비 지정해주기 */
+      position: relative;
+    }
+    .card-name {
+      /* 부모요소의 너비와 같은 크기 */
+      width: 100%;
+      /*absolute는 부모요소가 relative인 경우를 찾아서 움직이도록 되어있다. */
+      position: absolute; 
+      bottom: 0;
+      background-color: rgba(255, 194, 82, 0.582);
+      text-align: center;
+
+      /*
+        %: 부모 요소의 너비나 높이에 대한 비율
+        px: 점의 개수
+        em, rem: 부모나 최상위 요소 크기 기준
+        vh,vw: viewport height, width  
+      */
+
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    div {
+      /* border: 5px solid orange; */
+    }
+    img {
+      /* border: 5px solid blue; */
+      width: 200px;
+    }
+    p {
+      /* border: 5px solid green; */
+      /* 마진 숏핸드로 쓰면 상하/좌우 */
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <img src="image.png" alt="Profile Image">
+      <p class="card-name">Name</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci unde officiis ad nostrum. Laboriosam mollitia similique provident fuga tenetur saepe sit, amet eaque neque eius quaerat expedita ea illum veniam.</p>
+  </div>
+</body>
+</html>

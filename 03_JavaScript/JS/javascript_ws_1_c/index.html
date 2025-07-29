@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const studentNames = ['John', 'Alice', 'Bob']
+    const studentAges = {
+      John: 50,
+      Alice: 100,
+      Bob: 25
+    }
+    // 아래에 코드 작성
+    // for ... of 문을 사용해 studentNames를 순회하여 요소들을 출력
+    for (let studentName of studentNames) {
+      console.log(studentName)
+    }
+    // for ... in 문을 사용해 studentAges를 순회하여 각 속성의 값들을 출력
+    for (let key in studentAges) {
+      console.log(studentAges[key])
+    }
+  </script>
+</body>
+
+</html>
