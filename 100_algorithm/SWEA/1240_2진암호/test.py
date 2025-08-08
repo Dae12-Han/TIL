@@ -1,2 +1,4 @@
-arr=[list(map(int,input())) for _ in range(3)]
-print(arr)
+arr='1111'
+test=set()
+test.add(int(arr))
+print(test)
